@@ -5,6 +5,7 @@ set nocompatible " no old vi
 syntax on " syntax highlighting
 set number " add line numbers
 set cursorline
+colorscheme catppuccin
 
 " lua plugins
 lua require('plugins')
