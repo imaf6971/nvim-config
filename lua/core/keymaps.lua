@@ -20,3 +20,9 @@ keymap.set("n", "<leader>tb", ":tabp<CR>")
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
+
+keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
+keymap.set("n", "<leader>fs", ":Telescope live_grep<CR>")
+keymap.set("n", "<leader>fc", ":Telescope grep_string<CR>")
+keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
+keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>")
