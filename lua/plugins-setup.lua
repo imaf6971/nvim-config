@@ -88,6 +88,14 @@ return require('packer').startup(function(use)
   }
   use "jose-elias-alvarez/typescript.nvim"
   use "onsails/lspkind.nvim"
+
+  use {
+    "s1n7ax/nvim-terminal",
+    config = function()
+      vim.o.hidden = true
+      require('nvim-terminal').setup()
+    end
+  }
 	if packer_bootstrap then
 		require('packer').sync()
 	end
