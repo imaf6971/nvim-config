@@ -45,12 +45,10 @@ return require('packer').startup(function(use)
   use "szw/vim-maximizer"
 
   use "numToStr/Comment.nvim"
-	use {
-		"loctvl842/monokai-pro.nvim",
-		config = function()
-			require("monokai-pro").setup()
-		end
-	}
+
+  use "sainnhe/gruvbox-material"
+
+  use "nvim-lualine/lualine.nvim"
 
 	if packer_bootstrap then
 		require('packer').sync()
