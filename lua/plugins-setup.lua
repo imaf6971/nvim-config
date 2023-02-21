@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
   use "nvim-lua/plenary.nvim"
 
+  -- neo-tree for sidebar treenavigation
 	vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 	use {
 		"nvim-neo-tree/neo-tree.nvim",
@@ -33,6 +34,7 @@ return require('packer').startup(function(use)
 		}
 	}
 
+  -- treesitter for beautiful code colors
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
@@ -44,12 +46,16 @@ return require('packer').startup(function(use)
   use "christoomey/vim-tmux-navigator"
   use "szw/vim-maximizer"
 
+  -- comment plugin
   use "numToStr/Comment.nvim"
 
+  -- colorscheme
   use "sainnhe/gruvbox-material"
 
+  -- lualine (bottom statusline)
   use "nvim-lualine/lualine.nvim"
 
+  -- telescope (fast file search)
   use {
     "nvim-telescope/telescope-fzf-native.nvim",
     run = "make"
@@ -59,14 +65,29 @@ return require('packer').startup(function(use)
     tag = '0.1.1'
   }
 
+  -- autocompletions
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
-
+  
+  -- snippets
   use "L3MON4D3/LuaSnip"
   use "saadparwaiz1/cmp_luasnip"
   use "rafamadriz/friendly-snippets"
 
+  -- mason for managing and installing lsp servers
+  use "williamboman/mason.nvim"
+  
+  use "williamboman/mason-lspconfig.nvim"
+  use "neovim/nvim-lspconfig"
+
+  use "hrsh7th/cmp-nvim-lsp"
+  use {
+    "glepnir/lspsaga.nvim",
+    branch = "main"
+  }
+  use "jose-elias-alvarez/typescript.nvim"
+  use "onsails/lspkind.nvim"
 	if packer_bootstrap then
 		require('packer').sync()
 	end
