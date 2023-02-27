@@ -4,7 +4,7 @@ local keymap = vim.keymap
 
 keymap.set("i", "jj", "<ESC>")
 
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>h", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 
 keymap.set("n", "<leader>sv", "<C-w>v")
