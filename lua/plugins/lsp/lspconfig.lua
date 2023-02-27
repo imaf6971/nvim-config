@@ -1,6 +1,5 @@
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local typescript = require("typescript")
 local keymap = vim.keymap
 
 local on_attach = function(client, bufnr)
@@ -23,31 +22,14 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local capabilities require("cmp_nvim_lsp").default_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
-lspconfig["html"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
-typescript.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-})
-
-lspconfig["cssls"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
-lspconfig["tailwindcss"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-
-lspconfig["rust_analyzer"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+local mason_lspconfig = require("mason-lspconfig")
+mason_lspconfig.setup_handlers {
+  function (server_name)
+    lspconfig[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end,
+}
