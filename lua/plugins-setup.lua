@@ -69,7 +69,7 @@ return require('packer').startup(function(use)
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
-  
+
   -- snippets
   use "L3MON4D3/LuaSnip"
   use "saadparwaiz1/cmp_luasnip"
@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
 
   -- mason for managing and installing lsp servers
   use "williamboman/mason.nvim"
-  
+
   use "williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig"
 
@@ -89,6 +89,7 @@ return require('packer').startup(function(use)
   use "jose-elias-alvarez/typescript.nvim"
   use "onsails/lspkind.nvim"
 
+  -- terminal plugin
   use {
     "s1n7ax/nvim-terminal",
     config = function()
@@ -96,6 +97,14 @@ return require('packer').startup(function(use)
       require('nvim-terminal').setup()
     end
   }
+
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function ()
+      require('gitsigns').setup()
+    end
+  }
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
