@@ -113,6 +113,13 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    "akinsho/bufferline.nvim",
+    requires = "nvim-tree/nvim-web-devicons"
+  }
+
+  use "lukas-reineke/indent-blankline.nvim"
+
 	if packer_bootstrap then
 		require('packer').sync()
 	end
