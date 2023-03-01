@@ -119,7 +119,26 @@ return require('packer').startup(function(use)
   }
 
   use "lukas-reineke/indent-blankline.nvim"
-
+  use {
+    "nvim-neorg/neorg",
+    config = function ()
+      require('neorg').setup {
+        load = {
+          ["core.defaults"] = {},
+          ["core.norg.concealer"] = {},
+          ["core.norg.dirman"] = {
+            config = {
+              workspaces = {
+                notes = '~/notes'
+              }
+            }
+          }
+        }
+      }
+    end,
+    run = ":Neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim"
+  }
 	if packer_bootstrap then
 		require('packer').sync()
 	end
